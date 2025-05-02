@@ -1,0 +1,27 @@
+num_students = int(input("Enter number of students: "))
+names = []
+marks = []
+
+# Collect data
+for i in range(num_students):
+    name = input(f"\nEnter name of student {i+1}: ")
+    mark = float(input(f"Enter marks of {name} (out of 100): "))
+    names.append(name)
+    marks.append(mark)
+
+# Calculate average
+average = sum(marks) / num_students
+print(f"\nAverage Marks: {average:.2f}")
+
+# Find highest and lowest scorers
+max_mark = max(marks)
+min_mark = min(marks)
+highest_scorer = names[marks.index(max_mark)]
+lowest_scorer = names[marks.index(min_mark)]
+
+print(f"Highest Scorer: {highest_scorer} ({max_mark})")
+print(f"Lowest Scorer: {lowest_scorer} ({min_mark})")
+
+# Count students with marks above 50
+above_50 = sum(1 for m in marks if m > 50)
+print(f"Number of students who scored above 50: {above_50}")
